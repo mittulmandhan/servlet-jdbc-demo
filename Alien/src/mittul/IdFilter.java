@@ -29,15 +29,11 @@ public class IdFilter implements Filter {
 		PrintWriter out = response.getWriter();
 		HttpServletRequest req = (HttpServletRequest) request;
 		
-		System.out.println(req.getParameter("aname").trim().isEmpty());
 
 		int id = req.getParameter("aid") != null && !req.getParameter("aid").trim().isEmpty()
 				? Integer.parseInt(req.getParameter("aid"))
 				: 0;
 		String name = req.getParameter("aname")!=null && !req.getParameter("aname").trim().isEmpty()?req.getParameter("aname"):"";
-		
-//		System.out.println(name.trim().isEmpty());
-		System.out.println(req.getParameter("aid").trim().isEmpty());
 
 		if (id >= 1 && !name.trim().isEmpty() && !req.getParameter("aid").trim().isEmpty())
 			chain.doFilter(request, response);
